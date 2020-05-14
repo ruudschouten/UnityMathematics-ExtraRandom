@@ -8,7 +8,7 @@ namespace ExtraRandom
 
         protected BaseRandom()
         {
-            Random = new Unity.Mathematics.Random();
+            Random = new Unity.Mathematics.Random((uint)DateTime.Now.Millisecond);
         }
         
         protected BaseRandom(uint seed)
