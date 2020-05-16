@@ -48,12 +48,37 @@ namespace ExtraRandom
 
         public override int NextInt(int min, int max)
         {
-            return (int)Roll(min, max);
+            return Roll(min, max);
         }
 
         public override float NextFloat(float min, float max)
         {
             return Roll(min, max);
+        }
+
+        /// <inheritdoc cref="Roll(float,float)"/>
+        private int Roll(int min, int max)
+        {
+            // Set the default value to the highest possible number.
+            var lowest = int.MaxValue;
+            // Set the highest value to -1, since all rolls will be higher than 0.
+            var highest = -1;
+            for (var i = 0; i < _rollCount; i++)
+            {
+                var r = Random.NextInt(min, max);
+                if (r < lowest)
+                {
+                    lowest = r;
+                }
+
+                if (r > highest)
+                {
+                    highest = r;
+                }
+            }
+
+            // Return the result based on the bias.
+            return _bias == Bias.Lower ? lowest : highest;
         }
 		
         /// <summary>
