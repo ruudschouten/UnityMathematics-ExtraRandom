@@ -22,7 +22,7 @@ namespace ExtraRandom
         }
 
         /// <summary>
-        /// Create a new <see cref="BaseRandom"/> with the given <paramref name="seed"/>
+        /// Create a new <see cref="BaseRandom"/> instance with the given <paramref name="seed"/>
         /// </summary>
         /// <param name="seed">The seed that should be used to generate random numbers.</param>
         protected BaseRandom(uint seed)

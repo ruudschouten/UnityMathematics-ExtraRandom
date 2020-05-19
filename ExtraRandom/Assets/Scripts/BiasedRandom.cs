@@ -56,7 +56,14 @@ namespace ExtraRandom
             return Roll(min, max);
         }
 
-        /// <inheritdoc cref="Roll(float,float)"/>
+        /// <summary>
+        /// Roll a few random number, the amount of rolls is based on <see cref="_rollCount"/>.
+        /// After generating the numbers, the lowest or highest roll will be returned.
+        /// This is based on the <see cref="_bias"/>
+        /// </summary>
+        /// <param name="min">The minimum value that can be rolled for.</param>
+        /// <param name="max">The maximum value that can be rolled for.</param>
+        /// <returns>The lowest or highest number that was rolled for.</returns>
         private int Roll(int min, int max)
         {
             // Set the default value to the highest possible number.
@@ -80,15 +87,8 @@ namespace ExtraRandom
             // Return the result based on the bias.
             return _bias == Bias.Lower ? lowest : highest;
         }
-		
-        /// <summary>
-        /// Roll a few random number, the amount of rolls is based on <see cref="_rollCount"/>.
-        /// After generating the numbers, the lowest or highest roll will be returned.
-        /// This is based on the <see cref="_bias"/>
-        /// </summary>
-        /// <param name="min">The minimum value that can be rolled for.</param>
-        /// <param name="max">The maximum value that can be rolled for.</param>
-        /// <returns>The lowest or highest number that was rolled for.</returns>
+
+        /// <inheritdoc cref="Roll(int,int)"/> 
         private float Roll(float min, float max)
         {
             // Set the default value to the highest possible number.
